@@ -1,0 +1,33 @@
+{
+  "name": "worldcup2018",
+  "version": "1.0.0",
+  "description": "Simple progressive web app for the world cup 2018",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikke09/WorldCupPWA.git"
+  },
+  "keywords": [
+    "pwa",
+    "soccer",
+    "football",
+    "worldcup",
+    "2018"
+  ],
+  "author": "Felix Seip & Christian Bechtluft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ikke09/WorldCupPWA/issues"
+  },
+  "homepage": "https://github.com/ikke09/WorldCupPWA#readme",
+  "devDependencies": {
+    "jest": "^23.0.1"
+  },
+  "dependencies": {
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  }
+}
