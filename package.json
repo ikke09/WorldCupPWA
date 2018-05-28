@@ -4,7 +4,10 @@
   "description": "Simple progressive web app for the world cup 2018",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
@@ -28,6 +31,7 @@
   },
   "dependencies": {
     "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react-dom": "^16.4.0",
+    "react-scripts": "1.1.4"
   }
 }
