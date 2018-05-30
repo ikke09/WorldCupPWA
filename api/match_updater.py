@@ -1,8 +1,9 @@
-import urllib.request
+import urllib
 import json
 
 groupsArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 teams = []
+flags = []
 stages = []
 
 def update_game_info():
@@ -22,6 +23,7 @@ def update_game_info():
         counter = 0
         for stage in stages:
             if counter == 0:
+                stage['name'] = 'groups'
                 for groupName in groupsArray:
                     map_team_id_to_name(stage[groupName]['matches'])
             else:
@@ -33,5 +35,7 @@ def map_team_id_to_name(matches):
     for match in matches:
         if (type(match['home_team']) is int) and (type(match['away_team']) is int):
             if not(match['home_team'] > len(teams)) or not(match['away_team'] > len(teams)):
+                match['home_flag'] = teams[match['home_team'] - 1]['flag']
+                match['away_flag'] = teams[match['away_team'] - 1]['flag']
                 match['home_team'] = teams[match['home_team'] - 1]['name']
                 match['away_team'] = teams[match['away_team'] - 1]['name']

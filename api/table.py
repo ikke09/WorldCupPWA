@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, session,abort
 
-match_route = Blueprint('match_route', __name__)
-@match_route.route("/match")
-def match():
+table_route = Blueprint('table_route', __name__)
+@table_route.route("/worldcup2018/table")
+def table():
     return "This will return a table for the games!"
