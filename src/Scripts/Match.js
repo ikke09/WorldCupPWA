@@ -14,7 +14,7 @@ class Match extends React.Component {
     render() {
         return (
             <div className="Match">
-                <Paper className="PaperMatch" elevation={4}>
+                <Paper className="PaperMatch" elevation={4} style={{backgroundColor: '#ccc'}}>
                 <div class="grid-container">
                     <div class="grid-item home flag">
                         <img src={this.Match.home_flag} 
@@ -38,7 +38,7 @@ class Match extends React.Component {
                         />
                     </div>
 
-                    <div class="grid-item attr">{this.Match.date}</div>
+                    <div class="grid-item attr">{this.Match.date.toString()}</div>
                 </div> 
                 </Paper>
                 
