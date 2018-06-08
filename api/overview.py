@@ -1,6 +1,5 @@
 import sys
 import json
-sys.path.append('../..')
 
 import match_updater
 

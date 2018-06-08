@@ -20,18 +20,15 @@ main_app.register_blueprint(match_route)
 def update_match_info():
     match_updater.update_game_info()
 
-if __name__ == '__main__':
+scheduler = BackgroundScheduler(timezone=utc)
+scheduler.start()
 
+update_match_info()
+scheduler.add_job(
+    func=update_match_info,
+    trigger=IntervalTrigger(hours=1, timezone=utc),
+    id='update_match_info',
+    name='Updates the information about the matches every hour',
+    replace_existing=True)
 
-    scheduler = BackgroundScheduler(timezone=utc)
-    scheduler.start()
-    
-    update_match_info()
-    scheduler.add_job(
-        func=update_match_info,
-        trigger=IntervalTrigger(hours=1, timezone=utc),
-        id='update_match_info',
-        name='Updates the information about the matches every hour',
-        replace_existing=True)
-    
-    main_app.run(debug=True)
+main_app.run(host='0.0.0.0')
