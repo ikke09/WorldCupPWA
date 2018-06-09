@@ -17,8 +17,10 @@ main_app.register_blueprint(overview_route)
 main_app.register_blueprint(table_route)
 main_app.register_blueprint(match_route)
 
+
 def update_match_info():
     match_updater.update_game_info()
+
 
 scheduler = BackgroundScheduler(timezone=utc)
 scheduler.start()
@@ -31,4 +33,8 @@ scheduler.add_job(
     name='Updates the information about the matches every hour',
     replace_existing=True)
 
-main_app.run(host='0.0.0.0')
+main_app.run(
+    host='0.0.0.0')
+# use in production only:
+#    ssl_context=('/etc/letsencrypt/live/anabell.info/fullchain.pem',
+#                 '/etc/letsencrypt/live/anabell.info/privkey.pem')
