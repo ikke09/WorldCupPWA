@@ -3,6 +3,7 @@ import logo from '../Resources/Logo_2018_FIFA_World_Cup.svg';
 import '../Styles/App.css';
 
 import FilterDialog from './FilterDialog';
+import Match from './Match';
 
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -15,14 +16,24 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Divider from '@material-ui/core/Divider';
+import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import FilterIcon from '@material-ui/icons/FilterList';
 
-
 const drawerWidth = 240;
+
+var dummyMatch = {
+  home_team: "Russia",
+  away_team: "Germany",
+  home_flag: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/900px-Flag_of_Russia.png",
+  away_flag: "https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/800px-Flag_of_Germany.png",
+  date: new Date(2018,6,18,19,0,0,0),
+  away_result: 1,
+  home_result: 0
+};
 
 const styles = theme => ({
   root: {
@@ -124,6 +135,8 @@ class App extends Component {
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </div>
+        <Button variant="flat" color="primary">Overview</Button>
+        <Button variant="flat" color="primary">Statstable</Button>
       </Drawer>
     );
 
@@ -165,6 +178,7 @@ class App extends Component {
           </AppBar>
           {drawer}
         </div>
+        <Match Match={dummyMatch}></Match>
       </div>
     );
   }
