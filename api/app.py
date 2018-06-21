@@ -3,8 +3,6 @@ import match_updater
 
 from flask import Flask
 
-from overview import overview_route
-from table import table_route
 from match import match_route
 
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -13,8 +11,6 @@ from apscheduler.triggers.interval import IntervalTrigger
 from pytz import utc
 
 main_app = Flask(__name__)
-main_app.register_blueprint(overview_route)
-main_app.register_blueprint(table_route)
 main_app.register_blueprint(match_route)
 
 
