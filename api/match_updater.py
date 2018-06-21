@@ -7,6 +7,11 @@ flags = []
 stages = []
 
 def update_game_info():
+    teams.clear()
+    flags.clear()
+    stages.clear()
+
+
     with urllib.request.urlopen("https://raw.githubusercontent.com/lsv/fifa-worldcup-2018/master/data.json") as url:
         data = json.loads(url.read().decode())
 
@@ -29,7 +34,6 @@ def update_game_info():
             else:
                 map_team_id_to_name(stage['matches'])
             counter = counter + 1
-
 
 def map_team_id_to_name(matches):
     for match in matches:
